@@ -14,6 +14,8 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "web": "cd frontend/web && bun dev"
+    "web": "cd frontend/web && bun dev",
+    "web:build": "cd frontend/web && bun build:prod",
+    "web:start": "cd frontend/web && bun start"
   }
 }

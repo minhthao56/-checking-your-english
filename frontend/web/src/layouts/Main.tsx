@@ -8,7 +8,7 @@ export default function Main({
   return (
     <>
       <MainNav />
-      <div className="flex justify-center w-screen">
+      <div className="flex justify-center w-screen mt-4">
         <div className="max-w-screen-xl w-full">{children}</div>
       </div>
     </>

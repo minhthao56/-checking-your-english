@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:prod": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -17,6 +17,7 @@
     "clsx": "^2.1.0",
     "lucide-react": "^0.338.0",
     "next": "14.1.0",
+    "next-intl": "^3.9.1",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",

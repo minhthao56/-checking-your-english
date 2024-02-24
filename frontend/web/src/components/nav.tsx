@@ -1,17 +1,15 @@
 import Link from "next/link";
-import { LetterCaseCapitalizeIcon} from "@radix-ui/react-icons"
+import { LetterCaseCapitalizeIcon } from "@radix-ui/react-icons";
 
 import { ModeToggle } from "./mode-toggle";
+import { cn } from "@/lib/utils";
 
-export function MainNav({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLElement>) {
+export function MainNav({className ,...props }: React.HTMLAttributes<HTMLElement>) {
   return (
-    <nav className="flex h-16 px-4 justify-center border-b" {...props}>
+    <nav className={cn("flex h-16 px-4 justify-center border-b", className)} {...props}>
       <div className="flex max-w-screen-xl w-full items-center justify-between">
         <div className="border p-2 rounded-full">
-         <LetterCaseCapitalizeIcon/>
+          <LetterCaseCapitalizeIcon />
         </div>
         <div className="flex">
           <Link
