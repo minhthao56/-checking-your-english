@@ -1,0 +1,19 @@
+{
+  "name": "checking-your-english",
+  "module": "index.ts",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "backend/*",
+    "frontend/*"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "web": "cd frontend/web && bun dev"
+  }
+}
