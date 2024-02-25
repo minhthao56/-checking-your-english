@@ -7,7 +7,7 @@ import {
   allowedDatetimeTypes,
   allowedNumberTypes,
   randomValue,
-  speak,
+  speakText,
 } from "@/utils/reflex";
 import { useForm, SubmitHandler, useWatch } from "react-hook-form";
 import { useState } from "react";
@@ -27,8 +27,8 @@ const defaultValues: Inputs = {
   options: {
     endDate: new Date(),
     startDate: new Date(2021, 0, 1),
-    maxNumber: 100,
-    minNumber: 1,
+    maxNumber: "100",
+    minNumber: "1",
   },
 };
 
@@ -46,7 +46,7 @@ export default function FormRandom() {
   };
 
   const handleSpeak = () => {
-    speak(value);
+    speakText(value);
   }
 
   return (

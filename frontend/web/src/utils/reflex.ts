@@ -59,8 +59,8 @@ export const randomNumberPhone = () => {
 type Options = {
   startDate: Date;
   endDate: Date;
-  minNumber: number;
-  maxNumber: number;
+  minNumber: string;
+  maxNumber: string;
 };
 
 export const allowedDatetimeTypes = ["date", "datetime", "time", "year"];
@@ -87,7 +87,7 @@ export const randomValue = (type: string, option?: Options): string => {
         minute: "numeric",
       });
     case "number":
-      return randomNumber(option?.minNumber || 0,option?.maxNumber || 100).toString();
+      return randomNumber(Number.parseInt(option?.minNumber || "0") ,Number.parseInt(option?.maxNumber || "100")).toString();
     case "letter":
       return randomLetter();
     case "phone":
@@ -99,7 +99,7 @@ export const randomValue = (type: string, option?: Options): string => {
   }
 }
 
-export function speak(text: string) {
+export function speakText(text: string) {
   // Create a SpeechSynthesisUtterance
   const utterance = new SpeechSynthesisUtterance(text);
 
