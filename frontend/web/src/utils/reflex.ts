@@ -69,12 +69,13 @@ export const allowedNumberTypes = ["number"];
 export const randomValue = (type: string, option?: Options): string => {
   switch (type) {
     case "date":
-      return DateTime.fromJSDate(randomDate(new Date(2021, 0, 1), new Date())).toLocaleString({
+      return DateTime.fromJSDate(randomDate( option?.startDate || new Date(2025, 0, 1), option?.startDate || new Date())
+        ).toLocaleString({
         month: "long",
         day: "2-digit",
       });
     case "datetime":
-      return DateTime.fromJSDate(randomDate(new Date(2021, 0, 1), new Date())).toLocaleString({
+      return DateTime.fromJSDate(randomDate(option?.startDate || new Date(2025, 0, 1),option?.endDate || new Date())).toLocaleString({
         month: "long",
         day: "numeric",
         hour: "numeric",
@@ -86,14 +87,26 @@ export const randomValue = (type: string, option?: Options): string => {
         minute: "numeric",
       });
     case "number":
-      return randomNumber(1, 100).toString();
+      return randomNumber(option?.minNumber || 0,option?.maxNumber || 100).toString();
     case "letter":
-      return randomLetter().toUpperCase();
+      return randomLetter();
     case "phone":
       return randomNumberPhone().toString();
     case "year":
-      return randomNumber(option?.startDate.getFullYear() || 1900, option?.endDate.getFullYear()|| 2050).toString()
+      return randomNumber(option?.startDate.getFullYear() || 1900, option?.endDate.getFullYear() || 2050).toString()
     default:
       return "";
   }
+}
+
+export function speak(text: string) {
+  // Create a SpeechSynthesisUtterance
+  const utterance = new SpeechSynthesisUtterance(text);
+
+  // Select a voice
+  const voices = speechSynthesis.getVoices();
+  utterance.voice = voices[0]; // Choose a specific voice
+
+  // Speak the text
+  speechSynthesis.speak(utterance);
 }

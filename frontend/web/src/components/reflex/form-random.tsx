@@ -7,6 +7,7 @@ import {
   allowedDatetimeTypes,
   allowedNumberTypes,
   randomValue,
+  speak,
 } from "@/utils/reflex";
 import { useForm, SubmitHandler, useWatch } from "react-hook-form";
 import { useState } from "react";
@@ -43,6 +44,10 @@ export default function FormRandom() {
     const value = randomValue(data.typeData, data.options);
     setValue(value);
   };
+
+  const handleSpeak = () => {
+    speak(value);
+  }
 
   return (
     <Form {...form}>
@@ -101,7 +106,7 @@ export default function FormRandom() {
           <Button type="submit" className="mr-4">
             Random
           </Button>
-          <Button>
+          <Button onClick={handleSpeak} type="button">
             <SpeakerLoudIcon />
           </Button>
         </div>
