@@ -1,4 +1,4 @@
-import { expect, test, vi } from 'vitest'
+import { expect, test, } from 'vitest'
 import { 
     randomDate, 
     randomTime, 
@@ -6,7 +6,6 @@ import {
     randomLetter, 
     randomNumberPhone, 
     randomValue, 
-    speakText 
 } from '../reflex'
 
 test('randomDate', () => {
@@ -56,6 +55,8 @@ test('randomValue', () => {
 
 // test('speakText', () => {
 //     const text = 'Hello, world!'
+//     global.SpeechSynthesisUtterance = vi.fn();
+//     global.speechSynthesis = { speak: vi.fn(), getVoices: ()=>{[]}  } as any;
 //     const speakMock = vi.spyOn(window.speechSynthesis, 'speak')
 //     speakText(text)
 //     expect(speakMock).toHaveBeenCalled()

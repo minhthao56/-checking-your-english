@@ -16,6 +16,7 @@
   "scripts": {
     "web": "cd frontend/web && bun dev",
     "web:build": "cd frontend/web && bun build:prod",
-    "web:start": "cd frontend/web && bun start"
+    "web:start": "cd frontend/web && bun start",
+    "web:test": "cd frontend/web && bun test:v"
   }
 }
