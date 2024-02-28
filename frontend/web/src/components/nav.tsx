@@ -19,6 +19,12 @@ export function MainNav({className ,...props }: React.HTMLAttributes<HTMLElement
             Home
           </Link>
           <Link
+            href="/toeic-writing"
+            className="text-sm font-medium transition-colors hover:text-primary mr-4"
+          >
+            TOEIC Writing
+          </Link>
+          <Link
             href="/reflex"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
