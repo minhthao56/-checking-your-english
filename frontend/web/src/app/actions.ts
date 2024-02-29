@@ -9,10 +9,11 @@ import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 
+const apiKey = process.env.GOOGLE_API_KEY;
 const chatModel = new ChatGoogleGenerativeAI({
     modelName: "gemini-pro",
     maxOutputTokens: 2048,
-    apiKey: "AIzaSyDHsDHag2WPqHb5JdQCb0ebQ6Cqioe3AHI"
+    apiKey
 });
 export async function invokeLLM() {
     const loader = new CheerioWebBaseLoader(
@@ -29,7 +30,7 @@ export async function invokeLLM() {
     console.log(splitDocs[0].pageContent.length);
 
     const embeddings = new GoogleGenerativeAIEmbeddings({
-        apiKey: "AIzaSyDHsDHag2WPqHb5JdQCb0ebQ6Cqioe3AHI",
+        apiKey
     });
     const vectorstore = await MemoryVectorStore.fromDocuments(
         splitDocs,
