@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { invokeLLM } from "@/app/actions";
+import { invokeLLM, invokeLLMWithImage } from "@/app/actions";
 import { useState, useTransition } from "react";
 
 export default function Home() {
@@ -16,9 +16,18 @@ export default function Home() {
       });
     });
   };
+
+  const handleWithImage = () => {
+    startTransition(() => {
+     invokeLLMWithImage();
+    });
+  }
+
   return (
     <div>
-      <Button onClick={handleClick}>Click me</Button>
+      <Button onClick={handleClick}>Ask</Button>
+      <Button onClick={handleWithImage}>Image</Button>
+
       {isPending ? "Loading..." : null}
       {result ? result : null}
     </div>
